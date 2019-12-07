@@ -1,5 +1,5 @@
 //Pumpkin Protector/PumpKing/PumpkinHead.
-// Developed By Andrew, James and, Sterling Lownik 2018-2019
+// Developed By Andrew, James and, Sterling Lownik 2018-2020
 
 //Include
 #include <Wire.h>
@@ -248,7 +248,7 @@ void loop() {
     if (ps2x.Button(PSB_PAD_UP)) {     //will be TRUE as long as button is pressed
       Serial.print("Up held this hard: ");
       Serial.println(ps2x.Analog(PSAB_PAD_UP), DEC);
-      Page=0;
+      Page = 0;
 
     }
     if (ps2x.Button(PSB_PAD_RIGHT)) {
@@ -257,7 +257,7 @@ void loop() {
       digitalWrite(9, HIGH);
       delay (50);
       digitalWrite(9, LOW);
-      Page=1;
+      Page = 1;
     }
     if (ps2x.Button(PSB_PAD_LEFT)) {
       Serial.print("LEFT held this hard: ");
@@ -265,7 +265,7 @@ void loop() {
       digitalWrite(6, HIGH);
       delay (50);
       digitalWrite(6, LOW);
-      Page=2;
+      Page = 2;
     }
     if (ps2x.Button(PSB_PAD_DOWN)) {
       Serial.print("DOWN held this hard: ");
@@ -273,7 +273,7 @@ void loop() {
       digitalWrite(5, HIGH);
       delay (50);
       digitalWrite(5, LOW);
-      Page=3;    
+      Page = 3;
     }
 
     vibrate = ps2x.Analog(PSAB_CROSS);  //this will set the large motor vibrate speed based on how hard you press the blue (X) button
@@ -286,13 +286,13 @@ void loop() {
         Serial.println("L2 pressed");
       if (ps2x.Button(PSB_R2))
         Serial.println("R2 pressed");
-      if (ps2x.Button(PSB_TRIANGLE)){
+      if (ps2x.Button(PSB_TRIANGLE)) {
         Serial.println("Triangle pressed");
-        Lights=!Lights;
-        
+        Lights = !Lights;
+
       }
-        
-           
+
+
     }
 
     if (ps2x.ButtonPressed(PSB_CIRCLE))              //will be TRUE if button was JUST pressed
@@ -364,16 +364,16 @@ void loop() {
   Serial.println(averageY);
   //PosY = map(averageY,10,1000,125,10);//Down,Up
   //PosX = map(averageX,10,1000,0,177);//Right/Left
-  
+
   PosY = map(ps2x.Analog(PSS_RY), 254, 0, 25, 145); //Down,Up
   PosX = map(ps2x.Analog(PSS_RX), 0, 254, 0, 180); //Right/Left
   PosZ = analogRead(A3);
 
-  
+
   ServoTilt.write(PosX);
   ServoPan.write(PosY);
-  
-  
+
+
   DDV = map(ps2x.Analog(PSS_LX), 0, 254, -50, 50);
   //DDV = map(DDV 0,1023,-10000,10000 );
   LDV = map(ps2x.Analog(PSS_LY), 252, 1, -129, 127); //Down,Up
@@ -396,7 +396,7 @@ void loop() {
     lcd.print("Z: ");
     lcd.setCursor(2, 1);
     lcd.print(z + 105);
-    lcd.setCursor(5,1);
+    lcd.setCursor(5, 1);
     lcd.print(Lights);
     //delay(33);
     //Serial.print("X Value: ");
@@ -463,7 +463,7 @@ void loop() {
 
     delay(35);
   }
-pinMode(LightPin,!Lights);
+  pinMode(LightPin, !Lights);
 }
 /*
   delay(1);        // delay in between reads for stability
