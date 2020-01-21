@@ -101,7 +101,8 @@ const word MMA845X_Address = 0x1C; //0x1D
 
 // Objects
 //------------lcd(en,rw,lsb,x,x,msb)
-LiquidCrystal lcd(22, 23, 27, 26, 25, 24);
+LiquidCrystal lcd(7, 6, 5, 4, 3, 2);
+//LiquidCrystal lcd(22, 23, 27, 26, 25, 24);
 SoftwareSerial HBL (HBL_RX, HBL_TX);
 SoftwareSerial HBR (HBR_RX, HBR_TX);
 SoftwareSerial ESP8266 (ESP8266_RX, ESP8266_TX);
