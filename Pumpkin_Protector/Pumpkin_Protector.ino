@@ -9,10 +9,7 @@
 #include <SoftwareSerial.h>
 #include <Adafruit_Sensor.h>
 Adafruit_MMA8451 mma = Adafruit_MMA8451();
-
-
 //PS2 Controler setup
-
 #include <PS2X_lib.h>  //for v1.6
 
 /******************************************************************
@@ -21,10 +18,10 @@ Adafruit_MMA8451 mma = Adafruit_MMA8451();
      - 2e colmun: Stef?
    replace pin numbers by the ones you use
  ******************************************************************/
-#define PS2_DAT        34  //14    
-#define PS2_CMD        30  //15
-#define PS2_SEL        35  //16
-#define PS2_CLK        31  //17
+#define PS2_DAT        30  //14    
+#define PS2_CMD        31  //15
+#define PS2_SEL        32  //16
+#define PS2_CLK        33  //17
 
 /******************************************************************
    select modes of PS2 controller:
@@ -173,8 +170,8 @@ void setup() {
   delay(50); lcd.print("o"); HBL.begin (9600);
   delay(50); lcd.print("a"); HBR.begin (9600);
   delay(50); lcd.print("d"); ESP8266.begin (9600);
-  delay(50); lcd.print("i"); ServoPan.attach(3); // attaches the ServoPan to pin 2
-  delay(50); lcd.print("n"); ServoTilt.attach(2); // attaches the ServoTilt to pin 3
+  delay(50); lcd.print("i"); ServoPan.attach(11); // attaches the ServoPan to pin 2
+  delay(50); lcd.print("n"); ServoTilt.attach(10); // attaches the ServoTilt to pin 3
   delay(50); lcd.print("g"); //for(int thisReading = 0; thisReading < numReadingsX; thisReading++) {readingsX[thisReading] = 0;}//initialize all the readingsX to 0:
   delay(50); lcd.print("."); //for (int thisReading = 0; thisReading < numReadingsY; thisReading++) {readingsY[thisReading] = 0;}//initialize all the readingsY to 0:
   delay(50); lcd.print("."); Wire.begin();
