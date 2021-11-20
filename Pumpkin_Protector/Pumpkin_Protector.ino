@@ -108,7 +108,7 @@ Servo ServoTilt; //Create servo object representing (Y)
 Servo ServoPan; //Create servo object representing (X)
 
 void setup() {
-
+Serial.begin(9600);
   //CHANGES for v1.6 HERE!!! **************PAY ATTENTION*************
 
   //setup pins and settings: GamePad(clock, command, attention, data, Pressures?, Rumble?) check for error
@@ -166,12 +166,12 @@ void setup() {
   // put your setup code here, to run once:
   lcd.begin(16, 2); //16x2,32x2,40x2,ect.
   delay(1); lcd.clear(); lcd.setCursor(0, 1); lcd.print("PumpKing V1.0");
-  lcd.setCursor(0, 0); lcd.print("L"); Serial.begin(9600);
+  lcd.setCursor(0, 0); lcd.print("L"); 
   delay(50); lcd.print("o"); HBL.begin (9600);
   delay(50); lcd.print("a"); HBR.begin (9600);
   delay(50); lcd.print("d"); ESP8266.begin (9600);
-  delay(50); lcd.print("i"); ServoPan.attach(11); // attaches the ServoPan to pin 2
-  delay(50); lcd.print("n"); ServoTilt.attach(10); // attaches the ServoTilt to pin 3
+  delay(50); lcd.print("i"); ServoPan.attach(13); // attaches the ServoPan to pin 2
+  delay(50); lcd.print("n"); ServoTilt.attach(12); // attaches the ServoTilt to pin 3
   delay(50); lcd.print("g"); //for(int thisReading = 0; thisReading < numReadingsX; thisReading++) {readingsX[thisReading] = 0;}//initialize all the readingsX to 0:
   delay(50); lcd.print("."); //for (int thisReading = 0; thisReading < numReadingsY; thisReading++) {readingsY[thisReading] = 0;}//initialize all the readingsY to 0:
   delay(50); lcd.print("."); Wire.begin();
